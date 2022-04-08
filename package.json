@@ -13,6 +13,7 @@
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "akar-icons": "1.9.15",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
