@@ -1,6 +1,6 @@
 import * as Icon from 'akar-icons';
-import Image from 'next/image';
 import styled from 'styled-components';
+import Image from './Image';
 import LinkTo from './LinkTo';
 import NavLink from './NavLink';
 
