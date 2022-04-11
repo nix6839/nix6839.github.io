@@ -31,7 +31,7 @@ jobs:
           cd generate-json
           mkdir json-api
           npm ci
-          npx tsc
+          npm run build
           node dist/main.js
           cd json-api
           git init
