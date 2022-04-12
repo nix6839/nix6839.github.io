@@ -28,11 +28,8 @@ jobs:
 
       - name: Create JSON API
         run: |
-          cd generate-json
-          mkdir json-api
-          npm ci
-          npm run build
-          node dist/main.js
+          npm run build:generate-json-api
+          npm run generate-json-api
           cd json-api
           git init
           git config user.name 'github-actions[bot]'

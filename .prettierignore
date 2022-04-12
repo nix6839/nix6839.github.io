@@ -32,7 +32,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# generate json
-/generate-json/dist
-/generate-json/node_modules
-/generate-json/json-api
+/json-api
