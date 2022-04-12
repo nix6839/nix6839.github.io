@@ -9,11 +9,15 @@
     "start": "next start",
     "format": "prettier --write '**/*.{ts,tsx,js,json}'",
     "format:check": "prettier --check '**/*.{ts,tsx,js,json}'",
-    "lint": "eslint --max-warnings 0 'src/**/*.{ts,tsx}'",
-    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'"
+    "lint": "eslint --max-warnings 0 '{src,bin}/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix '{src,bin}/**/*.{ts,tsx}'",
+    "build:generate-json-api": "tsc -p bin/tsconfig.json",
+    "generate-json-api": "node bin/dist/bin/generate-json-api.js"
   },
   "dependencies": {
     "akar-icons": "1.9.15",
+    "class-validator": "^0.13.2",
+    "gray-matter": "^4.0.3",
     "next": "12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
