@@ -26,6 +26,13 @@ jobs:
           node-version: 16.x
           cache: 'npm'
 
+      - run: npm ci
+
+      - name: Check lint
+        run: |
+          npm run format:check
+          npm run lint
+
       - name: Create JSON API
         run: |
           npm run build:generate-json-api
@@ -40,9 +47,6 @@ jobs:
           git commit -m 'Create JSON API: ${{ github.sha }}'
           git push -f origin json-api
 
-      - run: npm ci
-      - run: npm run format:check
-      - run: npm run lint
       - run: npm run build
       # - run: npm test
       - run: npm run export
