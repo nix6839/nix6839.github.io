@@ -15,8 +15,11 @@ function mkdirIfNotExists(dirPath: string) {
   }
 }
 
-interface PostPage {
-  posts: Post[];
+interface PostSummary extends Omit<Post, 'content'> {
+  summary: string;
+}
+export interface PostPage {
+  posts: PostSummary[];
   nextPage?: number;
 }
 
@@ -26,12 +29,17 @@ function generatePostPageJsonApi(dir: string, pagePostCount: number) {
 
   for (let page = 0; page <= maxPage; page += 1) {
     const currentPageFirstPostIndex = page * pagePostCount;
-    const currentPagePosts = posts.slice(
-      currentPageFirstPostIndex,
-      currentPageFirstPostIndex + pagePostCount,
-    );
+    const currentPagePostSummaries: PostSummary[] = posts
+      .slice(
+        currentPageFirstPostIndex,
+        currentPageFirstPostIndex + pagePostCount,
+      )
+      .map(({ content, ...post }) => ({
+        ...post,
+        summary: content.slice(0, 200),
+      }));
     const postPage: PostPage = {
-      posts: currentPagePosts,
+      posts: currentPagePostSummaries,
     };
     const nextPage = page + 1;
     if (nextPage <= maxPage) {
