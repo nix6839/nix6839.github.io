@@ -1,8 +1,11 @@
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, rmSync, writeFileSync } from 'fs';
 import { join as pathJoin } from 'path';
 import { getPubPosts, Post } from '../src/lib/PostConnector';
 
 const ROOT_DIR_PATH = pathJoin(process.cwd(), 'json-api');
+const JSON_API_PATH = {
+  postsPages: `${ROOT_DIR_PATH}/posts/pages`,
+};
 
 const posts = getPubPosts();
 
@@ -37,11 +40,19 @@ function generatePostPageJsonApi(dir: string, pagePostCount: number) {
     postPages.push(postPage);
   }
 
-  mkdirIfNotExists(dir);
-
   postPages.forEach((postPage, page) => {
     writeFileSync(pathJoin(dir, `${page}.json`), JSON.stringify(postPage));
   });
 }
 
-generatePostPageJsonApi(pathJoin(`${ROOT_DIR_PATH}/posts/page`), 3);
+function main() {
+  rmSync(ROOT_DIR_PATH, { recursive: true, force: true });
+
+  Object.values(JSON_API_PATH).forEach((jsonApiPath) => {
+    mkdirIfNotExists(jsonApiPath);
+  });
+
+  generatePostPageJsonApi(pathJoin(JSON_API_PATH.postsPages), 3);
+}
+
+main();
