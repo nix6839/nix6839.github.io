@@ -1,6 +1,11 @@
 import { GetStaticProps } from 'next';
+import { useEffect, useRef } from 'react';
+import { useInfiniteQuery } from 'react-query';
 import styled from 'styled-components';
+import { PostPage } from '../../../bin/generate-json-api';
 import HeadTemplate from '../../components/HeadTemplate';
+import PostItem from '../../components/PostItem';
+import * as PostRequest from '../../lib/PostRequest';
 
 const HeaderWrapper = styled.div`
   position: fixed;
@@ -54,9 +59,60 @@ const BodyWrapper = styled.div`
   }
 `;
 
-type Props = {};
+type Props = {
+  initialPostPage: PostPage;
+};
 
-export default function Posts({}: Props) {
+export default function Posts({ initialPostPage }: Props) {
+  const { data, status, error, isFetchingNextPage, fetchNextPage } =
+    useInfiniteQuery(
+      ['postPage'],
+      async ({ pageParam }) => PostRequest.getPage(pageParam),
+      {
+        initialData: {
+          pages: [initialPostPage],
+          pageParams: [0],
+        },
+        getNextPageParam: (lastPage) => lastPage.nextPage,
+      },
+    );
+
+  const observerTargetRef = useRef<HTMLLIElement | null>(null);
+
+  useEffect(() => {
+    const currentTarget = observerTargetRef.current;
+    if (currentTarget === null) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        fetchNextPage();
+      }
+    });
+    observer.observe(currentTarget);
+
+    return () => {
+      observer.unobserve(currentTarget);
+    };
+  }, [fetchNextPage, data]);
+
+  /**
+   * initialData 때문에 절대 트리거 되지 않음.
+   * 타입가드를 위함 아래 링크 참조
+   * https://github.com/tannerlinsley/react-query/issues/3310
+   */
+  if (status === 'loading') {
+    return <>Loading...</>;
+  }
+
+  if (status === 'error') {
+    if (error instanceof Error) {
+      return <>에러: {error.message}</>;
+    }
+    return <>알 수 없는 에러 발생.</>;
+  }
+
   return (
     <>
       <HeadTemplate
@@ -72,12 +128,28 @@ export default function Posts({}: Props) {
         </header>
       </HeaderWrapper>
       <BodyWrapper>
-        <ul></ul>
+        <ul>
+          {data.pages.map((page) =>
+            page.posts.map((post) => (
+              <li
+                key={post.id}
+                ref={
+                  post.id === data.pages.at(-1)?.posts.at(-1)?.id
+                    ? observerTargetRef
+                    : undefined
+                }
+              >
+                <PostItem post={post} />
+              </li>
+            )),
+          )}
+        </ul>
       </BodyWrapper>
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  return { props: {} };
+  const initialPostPage = await PostRequest.getPage();
+  return { props: { initialPostPage } };
 };

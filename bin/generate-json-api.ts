@@ -15,7 +15,7 @@ function mkdirIfNotExists(dirPath: string) {
   }
 }
 
-interface PostSummary extends Omit<Post, 'content'> {
+export interface PostSummary extends Omit<Post, 'content'> {
   summary: string;
 }
 export interface PostPage {
