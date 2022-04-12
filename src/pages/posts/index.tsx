@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { PostPage } from '../../../bin/generate-json-api';
 import HeadTemplate from '../../components/HeadTemplate';
 import PostItem from '../../components/PostItem';
+import SpinIcon from '../../components/SpinIcon';
 import * as PostRequest from '../../lib/PostRequest';
 
 const HeaderWrapper = styled.div`
@@ -113,6 +114,8 @@ export default function Posts({ initialPostPage }: Props) {
     return <>알 수 없는 에러 발생.</>;
   }
 
+  const lastPostId = data.pages.at(-1)?.posts.at(-1)?.id;
+
   return (
     <>
       <HeadTemplate
@@ -133,17 +136,14 @@ export default function Posts({ initialPostPage }: Props) {
             page.posts.map((post) => (
               <li
                 key={post.id}
-                ref={
-                  post.id === data.pages.at(-1)?.posts.at(-1)?.id
-                    ? observerTargetRef
-                    : undefined
-                }
+                ref={post.id === lastPostId ? observerTargetRef : undefined}
               >
                 <PostItem post={post} />
               </li>
             )),
           )}
         </ul>
+        {isFetchingNextPage && <SpinIcon />}
       </BodyWrapper>
     </>
   );
