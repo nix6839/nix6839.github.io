@@ -4,7 +4,7 @@ import { getPubPosts, Post } from '../src/lib/PostConnector';
 
 const ROOT_DIR_PATH = pathJoin(process.cwd(), 'json-api');
 const JSON_API_PATH = {
-  postsPages: `${ROOT_DIR_PATH}/posts/pages`,
+  postPage: `${ROOT_DIR_PATH}/posts/pages`,
 };
 
 const posts = getPubPosts();
@@ -52,7 +52,7 @@ function main() {
     mkdirIfNotExists(jsonApiPath);
   });
 
-  generatePostPageJsonApi(pathJoin(JSON_API_PATH.postsPages), 3);
+  generatePostPageJsonApi(pathJoin(JSON_API_PATH.postPage), 3);
 }
 
 main();
