@@ -13,7 +13,7 @@
     "lint:fix": "eslint --fix '{src,bin}/**/*.{ts,tsx}'",
     "build:generate-json-api": "tsc -p bin/tsconfig.json",
     "generate-json-api": "node bin/dist/bin/generate-json-api.js",
-    "serve-json-api": "http-server json-api --tls --cors"
+    "serve-json-api": "http-server json-api --tls --cors -c-1 -d false"
   },
   "dependencies": {
     "akar-icons": "1.9.15",
