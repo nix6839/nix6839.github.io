@@ -1,5 +1,6 @@
 import {
   IsBoolean,
+  IsDateString,
   IsString,
   validateSync,
   ValidationError,
@@ -22,6 +23,7 @@ interface MarkdownFile<FrontMatterType extends object = Record<string, any>>
 interface PostFileFrontMatter {
   title: string;
   draft: boolean;
+  pubDate: string;
 }
 
 type PostFile = MarkdownFile<PostFileFrontMatter>;
@@ -50,10 +52,11 @@ function fileToMarkdownFile({
   return { id, filePath, content, frontMatter };
 }
 
-class PostFrontMatterValidator implements PostFileFrontMatter {
+class PostFileFrontMatterValidator implements PostFileFrontMatter {
   constructor(public readonly filePath: string, obj: Record<string, any>) {
     this.title = obj.title;
     this.draft = obj.draft;
+    this.pubDate = obj.pubDate;
   }
 
   @IsString()
@@ -61,6 +64,9 @@ class PostFrontMatterValidator implements PostFileFrontMatter {
 
   @IsBoolean()
   draft: boolean;
+
+  @IsDateString()
+  pubDate: string;
 
   public validate(): ValidationError[] {
     return validateSync(this, { forbidUnknownValues: true });
@@ -70,7 +76,7 @@ class PostFrontMatterValidator implements PostFileFrontMatter {
 function markdownFileIsValidPostFile(
   markdownFile: MarkdownFile,
 ): asserts markdownFile is PostFile {
-  const validationErrors = new PostFrontMatterValidator(
+  const validationErrors = new PostFileFrontMatterValidator(
     markdownFile.filePath,
     markdownFile.frontMatter,
   ).validate();
