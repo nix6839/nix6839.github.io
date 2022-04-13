@@ -1,4 +1,3 @@
-import 'dayjs/locale/ko';
 import { ReactNode, useCallback } from 'react';
 import styled from 'styled-components';
 import { PostSummary } from '../../bin/generate-json-api';
