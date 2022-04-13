@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import styled from 'styled-components';
 import HeadTemplate from '../../components/HeadTemplate';
+import RelativeTime from '../../components/RelativeTime';
 import * as PostConnector from '../../lib/PostConnector';
 
 const Article = styled.article`
@@ -41,7 +42,7 @@ export default function PostPage({ post }: Props) {
       <Article>
         <header>
           <h1>{post.title}</h1>
-          {/* <time dateTime={post.pubDate}>3일 전</time> */}
+          <RelativeTime dateTime={post.pubDate} locale="ko" />
         </header>
         <ContentSection>{post.content}</ContentSection>
       </Article>

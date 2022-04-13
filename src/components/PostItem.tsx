@@ -1,7 +1,9 @@
+import 'dayjs/locale/ko';
 import { ReactNode, useCallback } from 'react';
 import styled from 'styled-components';
 import { PostSummary } from '../../bin/generate-json-api';
 import LinkTo from './LinkTo';
+import RelativeTime from './RelativeTime';
 
 const Article = styled.article`
   display: flex;
@@ -45,7 +47,7 @@ const PostCardHeader = styled.header`
   gap: 4px;
 `;
 
-const PubDate = styled.time`
+const RelativePubDate = styled(RelativeTime)`
   display: block;
   font-size: 14px;
   color: #282828;
@@ -101,7 +103,7 @@ export default function PostItem({ post }: Props) {
       <TextContainer>
         <UpperContainer>
           <PostCardHeader>
-            {/* <PubDate dateTime={post.pubDate}>3일 전</PubDate> */}
+            <RelativePubDate dateTime={post.pubDate} locale="ko" />
             <LinkToPost>
               <Title>{post.title}</Title>
             </LinkToPost>
