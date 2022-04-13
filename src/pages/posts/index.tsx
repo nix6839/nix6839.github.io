@@ -58,6 +58,11 @@ const BodyWrapper = styled.div`
       min-width: 0;
     }
   }
+
+  > svg {
+    display: block;
+    margin: 0 auto;
+  }
 `;
 
 type Props = {
