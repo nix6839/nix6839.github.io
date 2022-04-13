@@ -5,9 +5,13 @@ import {
   validateSync,
   ValidationError,
 } from 'class-validator';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import { join as pathJoin } from 'path';
+
+dayjs.extend(customParseFormat);
 
 interface File {
   id: string;
@@ -97,6 +101,23 @@ function mapDefaultPostFileValueToMarkdownFile<T extends MarkdownFile>(
   };
 }
 
+function mapNormalizedPubDate(postFile: PostFile): PostFile {
+  const normalizedPubDate = dayjs(postFile.frontMatter.pubDate, [
+    'YYYY-MM-DD[T]HH:mm:ssZ',
+    'YYYY-MM-DD[T]HH:mm:ssZZ',
+    'YYYY-MM-DD[T]HH:mmZ',
+    'YYYY-MM-DD[T]HH:mmZZ',
+  ]).format();
+
+  return {
+    ...postFile,
+    frontMatter: {
+      ...postFile.frontMatter,
+      pubDate: normalizedPubDate,
+    },
+  };
+}
+
 function filesToPostFiles(files: File[]): PostFile[] {
   const markdownFiles = files
     .map(fileToMarkdownFile)
@@ -115,7 +136,7 @@ function filesToPostFiles(files: File[]): PostFile[] {
   if (validationErrorsList.length > 0) {
     throw validationErrorsList;
   }
-  return postFiles;
+  return postFiles.map(mapNormalizedPubDate);
 }
 
 function getPostFilesFromDir(dirPath: string): PostFile[] {
