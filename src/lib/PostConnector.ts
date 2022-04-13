@@ -107,7 +107,7 @@ function mapNormalizedPubDate(postFile: PostFile): PostFile {
     'YYYY-MM-DD[T]HH:mm:ssZZ',
     'YYYY-MM-DD[T]HH:mmZ',
     'YYYY-MM-DD[T]HH:mmZZ',
-  ]).format();
+  ]).format('YYYY-MM-DD[T]HH:mm:ssZ');
 
   return {
     ...postFile,
