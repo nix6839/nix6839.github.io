@@ -25,9 +25,9 @@ export interface PostPage {
 
 function generatePostPageJsonApi(dir: string, pagePostCount: number) {
   const postPages: PostPage[] = [];
-  const maxPage = Math.floor(posts.length / pagePostCount);
+  const totalPageCount = Math.ceil(posts.length / pagePostCount);
 
-  for (let page = 0; page <= maxPage; page += 1) {
+  for (let page = 0; page < totalPageCount; page += 1) {
     const currentPageFirstPostIndex = page * pagePostCount;
     const currentPagePostSummaries: PostSummary[] = posts
       .slice(
@@ -42,7 +42,7 @@ function generatePostPageJsonApi(dir: string, pagePostCount: number) {
       posts: currentPagePostSummaries,
     };
     const nextPage = page + 1;
-    if (nextPage <= maxPage) {
+    if (nextPage < totalPageCount) {
       postPage.nextPage = nextPage;
     }
     postPages.push(postPage);
