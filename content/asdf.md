@@ -1,5 +1,6 @@
 ---
 title: Sequitur grates constiterat primus
+pubDate: "2020-10-30T21:19:00+09"
 ---
 
 ## Erebi miliaque iam exstinctaque cuspide aevum clamor
