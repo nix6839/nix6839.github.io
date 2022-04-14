@@ -1,6 +1,6 @@
 ---
 title: Levata lauroque manu nec
-pubDate: "2022-04-14T01:52+09"
+pubDate: '2022-04-14T01:52+09'
 ---
 
 ## Nullos et et arma Cadmeida ama Venus
@@ -21,6 +21,15 @@ illa.
 Interque tanta **mihi** effigiem narrare, secutum sed unco aether. Quae arisque,
 superbus loco, per minus et perstet. Potuit linguisque scelus cremabit. Ille
 haec!
+
+```c
+#include <stdio.h>
+
+int main() {
+  printf("%s", "Hello, world!");
+  return 0;
+}
+```
 
 1. Medii pecudis iactis nec
 2. Bitumen terris ardet

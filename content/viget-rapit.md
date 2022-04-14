@@ -1,7 +1,8 @@
 ---
 title: Viget rapit
-pubDate: "2015-02-28T09:00:00+09"
+pubDate: '2015-02-28T09:00:00+09'
 ---
+
 ## Spes saepe
 
 Lorem markdownum [ille](http://et.com/ducitur.aspx) trahens cum famem dubio,
@@ -34,15 +35,17 @@ tepescere Phasis pelle conscia, facies. Caeli nox post, ageret studiumque
 Phinea. Mille frequens ultima Aries quibus, pavore credentes verborum, ultima,
 mites, vestigia.
 
-    if (progressiveBaseSearch.type_netmask_paper(copy_type)) {
-        memoryManagement(site(icf, http), design_supply_pipeline);
-        spoolingBarDaemon(parameter_mpeg_rw, impact);
-    } else {
-        text(directPoint, scarewareHdmiNui, flaming);
-        multi_surge = hardware_circuit;
-    }
-    grayscale = 4;
-    seoVlogJsp += domain + vrmlWeb + pram_p_latency;
+```js
+if (progressiveBaseSearch.type_netmask_paper(copy_type)) {
+  memoryManagement(site(icf, http), design_supply_pipeline);
+  spoolingBarDaemon(parameter_mpeg_rw, impact);
+} else {
+  text(directPoint, scarewareHdmiNui, flaming);
+  multi_surge = hardware_circuit;
+}
+grayscale = 4;
+seoVlogJsp += domain + vrmlWeb + pram_p_latency;
+```
 
 ## Turnusque solio placere Myrrhae ut et
 

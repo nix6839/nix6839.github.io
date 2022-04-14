@@ -34,10 +34,13 @@ oscula redimitus fraxinus inane, fuit Zancle super divitibusque tuas, *se*!
 Circumspexit sibi. Silvas oscula erumpit obvertit: erat via absens genuit tamen
 **esse qui**.
 
-    officeWebmaster += webSerpPlagiarism;
-    cableToolbarActive.speedPromptFpu.drive_iscsi(fileTeraflops(47, resolution,
-            cybercrimeFooterQueue));
-    var ip = -1;
+```js
+officeWebmaster += webSerpPlagiarism;
+cableToolbarActive.speedPromptFpu.drive_iscsi(
+  fileTeraflops(47, resolution, cybercrimeFooterQueue),
+);
+var ip = -1;
+```
 
 Adhuc undas, trahit vocabis docto, dedere nepotibus umbra abluere sidera
 mendacia, adparentia vinci. Balearica latus, aliter, certius locus nec, in sine.
