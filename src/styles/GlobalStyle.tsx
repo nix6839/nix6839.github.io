@@ -1,6 +1,6 @@
-import * as styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-export default styled.createGlobalStyle`
+export default createGlobalStyle`
   html,
   body,
   p,
@@ -60,7 +60,7 @@ export default styled.createGlobalStyle`
   pre,
   samp,
   var {
-    font-family: 'JetBrains Mono NL', D2Coding, monospace;
+    font-family: 'JetBrains Mono NL', 'JetBrains Mono', D2Coding, monospace;
   }
 
   a {

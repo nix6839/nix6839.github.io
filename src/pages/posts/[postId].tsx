@@ -1,8 +1,10 @@
+import rehypeShiki from '@leafac/rehype-shiki';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import rehypeStringify from 'rehype-stringify/lib';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
+import * as shiki from 'shiki';
 import styled from 'styled-components';
 import { unified } from 'unified';
 import HeadTemplate from '../../components/HeadTemplate';
@@ -28,6 +30,14 @@ const Article = styled.article`
 
 const ContentSection = styled.section`
   font-size: 18px;
+  li {
+    list-style-position: inside;
+  }
+  .shiki {
+    font-size: 17px;
+    padding: 10px 12px;
+    white-space: pre-wrap;
+  }
 `;
 
 type Props = {
@@ -83,6 +93,11 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypeStringify)
+    .use(rehypeShiki, {
+      highlighter: await shiki.getHighlighter({
+        theme: 'dark-plus',
+      }),
+    })
     .process(post.content);
 
   return {
