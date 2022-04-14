@@ -12,7 +12,7 @@
     "lint": "eslint --max-warnings 0 '{src,bin}/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix '{src,bin}/**/*.{ts,tsx}'",
     "build:generate-json-api": "tsc -p bin/tsconfig.json",
-    "generate-json-api": "node bin/dist/bin/generate-json-api.js",
+    "generate-json-api": "node --experimental-specifier-resolution=node bin/dist/bin/generate-json-api.js",
     "serve-json-api": "http-server json-api --tls --cors -c-1 -d false"
   },
   "dependencies": {
@@ -26,12 +26,19 @@
     "react-dom": "18.0.0",
     "react-is": "18.0.0",
     "react-query": "4.0.0-beta.3",
-    "styled-components": "5.3.5"
+    "rehype-stringify": "^9.0.3",
+    "remark-parse": "10.0.1",
+    "remark-rehype": "^10.1.0",
+    "remark-retext": "^5.0.1",
+    "retext-english": "^4.1.0",
+    "retext-stringify": "^3.1.0",
+    "styled-components": "5.3.5",
+    "unified": "10.1.2"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "12.1.5",
     "@types/node": "16.11.26",
-    "@types/react": "18.0.3",
+    "@types/react": "18.0.4",
     "@types/react-dom": "18.0.0",
     "@types/styled-components": "5.1.25",
     "eslint": "8.13.0",

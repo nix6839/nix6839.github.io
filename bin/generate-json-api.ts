@@ -1,5 +1,10 @@
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'fs';
 import { join as pathJoin } from 'path';
+import remarkParse from 'remark-parse';
+import remarkRetext from 'remark-retext';
+import { Parser } from 'retext-english';
+import retextStringify from 'retext-stringify';
+import { unified } from 'unified';
 import { getPubPosts, Post } from '../src/lib/PostConnector';
 
 const ROOT_DIR_PATH = pathJoin(process.cwd(), 'json-api');
@@ -23,7 +28,11 @@ export interface PostPage {
   nextPage?: number;
 }
 
-function generatePostPageJsonApi(dir: string, pagePostCount: number) {
+function generatePostPageJsonApi(
+  posts: Post[],
+  dir: string,
+  pagePostCount: number,
+) {
   const postPages: PostPage[] = [];
   const totalPageCount = Math.ceil(posts.length / pagePostCount);
 
@@ -36,7 +45,13 @@ function generatePostPageJsonApi(dir: string, pagePostCount: number) {
       )
       .map(({ content, ...post }) => ({
         ...post,
-        summary: content.slice(0, 200),
+        summary: unified()
+          .use(remarkParse)
+          .use(remarkRetext, Parser)
+          .use(retextStringify)
+          .processSync(content)
+          .toString()
+          .slice(0, 250),
       }));
     const postPage: PostPage = {
       posts: currentPagePostSummaries,
@@ -60,7 +75,7 @@ function main() {
     mkdirIfNotExists(jsonApiPath);
   });
 
-  generatePostPageJsonApi(pathJoin(JSON_API_PATH.postPage), 3);
+  generatePostPageJsonApi(posts, pathJoin(JSON_API_PATH.postPage), 3);
 }
 
 main();
