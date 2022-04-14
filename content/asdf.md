@@ -1,6 +1,6 @@
 ---
 title: Sequitur grates constiterat primus
-pubDate: "2020-10-30T21:19:00+09"
+pubDate: '2020-10-30T21:19:00+09'
 ---
 
 ## Erebi miliaque iam exstinctaque cuspide aevum clamor
@@ -18,17 +18,19 @@ Quodque per zephyri *male*, gravidae et muneris [quodcunque in
 maris](http://promptu.io/et) functus carmine veterumque illam, exturbare. Latet
 deducit, dixerunt violavit obstem in vixque fata per; causamque.
 
-    if (47 >= and) {
-        daemon += 5;
-        duplex += mouseAd;
-    }
-    pcmcia *= gui + 45;
-    terahertz_wheel *= kerning.intellectualServerMetal.piconet_multicasting(4);
-    system_control_software = nosql(null, -5 - -2);
-    if (icann_hub(flood_video_mpeg(hard, -5, bespoke) - cableRadcabRead, 4)) {
-        repeater.cellFacebook = access_network;
-        xmp_and_manet.snmp(oop_so_pim, applet_default);
-    }
+```js
+if (47 >= and) {
+  daemon += 5;
+  duplex += mouseAd;
+}
+pcmcia *= gui + 45;
+terahertz_wheel *= kerning.intellectualServerMetal.piconet_multicasting(4);
+system_control_software = nosql(null, -5 - -2);
+if (icann_hub(flood_video_mpeg(hard, -5, bespoke) - cableRadcabRead, 4)) {
+  repeater.cellFacebook = access_network;
+  xmp_and_manet.snmp(oop_so_pim, applet_default);
+}
+```
 
 ## Et corpus placet coniugium poposcerat gressus is
 
