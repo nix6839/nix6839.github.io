@@ -1,5 +1,6 @@
 import * as Icon from 'akar-icons';
 import styled from 'styled-components';
+import IconButton from './IconButton';
 import Image from './Image';
 import LinkTo from './LinkTo';
 import NavLink from './NavLink';
@@ -58,19 +59,6 @@ const Nav = styled.nav`
 const RightSection = styled.div`
   display: flex;
   gap: 8px;
-
-  button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    display: inline-flex;
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
-  }
 `;
 
 export default function SiteHeader() {
@@ -93,12 +81,12 @@ export default function SiteHeader() {
           </Nav>
         </LeftSection>
         <RightSection>
-          <button type="button" onClick={undefined}>
+          <IconButton onClick={undefined} aria-label="검색">
             <Icon.Search size={24} />
-          </button>
-          <button type="button" onClick={undefined}>
+          </IconButton>
+          <IconButton onClick={undefined} aria-label="테마 전환">
             <Icon.SunFill size={24} />
-          </button>
+          </IconButton>
         </RightSection>
       </HeaderContainer>
     </Header>
