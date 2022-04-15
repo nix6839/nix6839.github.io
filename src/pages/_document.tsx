@@ -6,6 +6,11 @@ export default function Document() {
       <Head>
         <meta name="theme-color" content="#78c84e" />
         <meta property="og:site_name" content="한영우의 개발 블로그" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://unpkg.com/pretendard@1.2.2/dist/web/static/pretendard-dynamic-subset.css"
+        />
       </Head>
       <body>
         <Main />

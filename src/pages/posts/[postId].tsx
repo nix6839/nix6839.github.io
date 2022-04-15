@@ -32,12 +32,13 @@ const ContentSection = styled.section`
   font-size: 18px;
 
   *:nth-child(1) {
-    margin-top: 0;
+    margin-top: 40px;
   }
   h2 {
     font-size: 32px;
     margin-top: 32px;
     font-weight: bold;
+    line-height: 1.5;
   }
   p {
     margin: 14px 0;
