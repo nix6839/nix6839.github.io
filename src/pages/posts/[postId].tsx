@@ -14,11 +14,10 @@ import * as PostConnector from '../../lib/PostConnector';
 const Article = styled.article`
   box-sizing: content-box;
   max-width: 768px;
-  padding: 20px 20px;
-  margin: 0 auto;
+  padding: 20px;
+  margin: 30px auto;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
   header {
     h1 {
       font-size: 48px;
@@ -29,14 +28,34 @@ const Article = styled.article`
 `;
 
 const ContentSection = styled.section`
+  line-height: 1.7;
   font-size: 18px;
-  li {
+
+  *:nth-child(1) {
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 32px;
+    margin-top: 32px;
+    font-weight: bold;
+  }
+  p {
+    margin: 14px 0;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ul,
+  ol {
     list-style-position: inside;
   }
-  .shiki {
-    font-size: 17px;
-    padding: 10px 12px;
+  pre.shiki {
+    margin: 14px 0;
+    font-size: 16px;
     white-space: pre-wrap;
+    word-break: break-all;
+    padding: 10px 16px;
+    border-radius: 5px;
   }
 `;
 
