@@ -1,7 +1,8 @@
 import Link, { LinkProps } from 'next/link';
+import { AnchorHTMLAttributes } from 'react';
 
 export type LinkToProps = Omit<LinkProps, 'passHref'> &
-  Omit<JSX.IntrinsicElements['a'], 'href'>;
+  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
 
 export default function LinkTo({
   children,
