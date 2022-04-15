@@ -54,6 +54,7 @@ export default createGlobalStyle`
     font-family: Pretendard, NanumGothic, sans-serif;
     line-height: 1.5;
     background-color: #fff;
+    color: #212529;
   }
 
   code,
