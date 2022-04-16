@@ -31,25 +31,30 @@ const ContentSection = styled.section`
   line-height: 1.7;
   font-size: 18px;
 
-  *:nth-child(1) {
+  & > :nth-child(1) {
     margin-top: 40px;
   }
+
   h2 {
     font-size: 32px;
     margin-top: 32px;
     font-weight: bold;
     line-height: 1.5;
   }
+
   p {
     margin: 14px 0;
   }
+
   ul {
     list-style-type: disc;
   }
+
   ul,
   ol {
     list-style-position: inside;
   }
+
   pre.shiki {
     margin: 14px 0;
     font-size: 16px;
