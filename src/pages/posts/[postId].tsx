@@ -96,7 +96,7 @@ export const getStaticPaths: GetStaticPaths<Params> = () => {
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 
