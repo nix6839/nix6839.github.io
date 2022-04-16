@@ -4,8 +4,8 @@ import { useInfiniteQuery } from 'react-query';
 import styled from 'styled-components';
 import { PostPage } from '../../../bin/generate-json-api';
 import HeadTemplate from '../../components/HeadTemplate';
+import SpinIcon from '../../components/icons/SpinIcon';
 import PostItem from '../../components/PostItem';
-import SpinIcon from '../../components/SpinIcon';
 import * as PostRequest from '../../lib/PostRequest';
 
 const HeaderWrapper = styled.div`
