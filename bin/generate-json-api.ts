@@ -9,10 +9,8 @@ import { getPubPosts, Post } from '../src/lib/PostConnector';
 
 const ROOT_DIR_PATH = pathJoin(process.cwd(), 'json-api');
 const JSON_API_PATH = {
-  postPage: `${ROOT_DIR_PATH}/posts/pages`,
+  postPage: pathJoin(ROOT_DIR_PATH, 'posts/pages'),
 };
-
-const posts = getPubPosts();
 
 function mkdirIfNotExists(dirPath: string) {
   if (!existsSync(dirPath)) {
@@ -75,7 +73,15 @@ function main() {
     mkdirIfNotExists(jsonApiPath);
   });
 
-  generatePostPageJsonApi(posts, pathJoin(JSON_API_PATH.postPage), 3);
+  const posts = getPubPosts();
+
+  generatePostPageJsonApi(
+    posts.sort(
+      (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime(),
+    ),
+    pathJoin(JSON_API_PATH.postPage),
+    3,
+  );
 }
 
 main();
