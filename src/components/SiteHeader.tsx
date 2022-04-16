@@ -1,4 +1,4 @@
-import * as Icon from 'akar-icons';
+import * as Icon from 'phosphor-react';
 import styled from 'styled-components';
 import IconButton from './IconButton';
 import Image from './Image';
@@ -82,10 +82,10 @@ export default function SiteHeader() {
         </LeftSection>
         <RightSection>
           <IconButton onClick={undefined} aria-label="검색">
-            <Icon.Search size={24} />
+            <Icon.MagnifyingGlass size={24} />
           </IconButton>
           <IconButton onClick={undefined} aria-label="테마 전환">
-            <Icon.SunFill size={24} />
+            <Icon.Sun size={24} weight="fill" />
           </IconButton>
         </RightSection>
       </HeaderContainer>
