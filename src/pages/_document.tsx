@@ -14,6 +14,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
+          <link rel="icon" href="favicon.svg" type="image/svg+xml" />
           <meta name="theme-color" content="#78c84e" />
           <meta property="og:site_name" content="한영우의 개발 블로그" />
         </Head>
