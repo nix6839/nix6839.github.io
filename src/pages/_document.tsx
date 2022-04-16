@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
           <link
             rel="stylesheet"
             type="text/css"
-            href="https://unpkg.com/pretendard@1.2.2/dist/web/static/pretendard-dynamic-subset.css"
+            href="https://unpkg.com/pretendard@1.2.2/dist/web/static/pretendard.css"
           />
         </Head>
         <body>
