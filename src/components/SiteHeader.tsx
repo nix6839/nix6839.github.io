@@ -1,7 +1,7 @@
 import * as Icon from 'phosphor-react';
 import styled from 'styled-components';
 import IconButton from './IconButton';
-import Image from './Image';
+import SiteIcon from './icons/SiteIcon';
 import LinkTo from './LinkTo';
 import NavLink from './NavLink';
 
@@ -30,10 +30,6 @@ const LeftSection = styled.div`
 
 const SiteLink = styled(LinkTo)`
   display: inline-flex;
-`;
-
-const SiteIcon = styled(Image)`
-  border-radius: 50%;
 `;
 
 const Nav = styled.nav`
@@ -67,12 +63,7 @@ export default function SiteHeader() {
       <HeaderContainer>
         <LeftSection>
           <SiteLink href="/">
-            <SiteIcon
-              src="/icon.png"
-              alt="사이트 아이콘"
-              width={36}
-              height={36}
-            />
+            <SiteIcon title="사이트 메인 이동 아이콘" />
           </SiteLink>
           <Nav>
             <NavLink href="/posts" activeClassName="active">
