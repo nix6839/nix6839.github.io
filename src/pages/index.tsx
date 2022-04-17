@@ -1,4 +1,5 @@
 import HeadTemplate from '../components/HeadTemplate';
+import Layout from '../components/Layout';
 
 export default function Home() {
   return (
@@ -9,7 +10,9 @@ export default function Home() {
         type="website"
         urlPath="/"
       />
-      <h1>안녕하세요!!</h1>
+      <Layout>
+        <h1>안녕하세요!!</h1>
+      </Layout>
     </>
   );
 }
