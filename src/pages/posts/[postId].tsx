@@ -8,6 +8,7 @@ import * as shiki from 'shiki';
 import styled from 'styled-components';
 import { unified } from 'unified';
 import HeadTemplate from '../../components/HeadTemplate';
+import Layout from '../../components/Layout';
 import RelativeTime from '../../components/RelativeTime';
 import * as PostConnector from '../../lib/PostConnector';
 
@@ -78,13 +79,15 @@ export default function PostPage({ post }: Props) {
         type="article"
         urlPath={`/posts/${post.id}`}
       />
-      <Article>
-        <header>
-          <h1>{post.title}</h1>
-          <RelativeTime dateTime={post.pubDate} locale="ko" />
-        </header>
-        <ContentSection dangerouslySetInnerHTML={{ __html: post.content }} />
-      </Article>
+      <Layout>
+        <Article>
+          <header>
+            <h1>{post.title}</h1>
+            <RelativeTime dateTime={post.pubDate} locale="ko" />
+          </header>
+          <ContentSection dangerouslySetInnerHTML={{ __html: post.content }} />
+        </Article>
+      </Layout>
     </>
   );
 }

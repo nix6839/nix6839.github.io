@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { PostPage } from '../../../bin/generate-json-api';
 import HeadTemplate from '../../components/HeadTemplate';
 import SpinIcon from '../../components/icons/SpinIcon';
+import Layout from '../../components/Layout';
 import PostItem from '../../components/PostItem';
 import * as PostRequest from '../../lib/PostRequest';
 
@@ -129,27 +130,29 @@ export default function Posts({ initialPostPage }: Props) {
         urlPath="/posts"
         type="website"
       />
-      <HeaderWrapper>
-        <header>
-          <h1>게시글 목록</h1>
-          <p>최근 게시글 목록을 확인해 보세요.</p>
-        </header>
-      </HeaderWrapper>
-      <BodyWrapper>
-        <ul>
-          {data.pages.map((page) =>
-            page.posts.map((post) => (
-              <li
-                key={post.id}
-                ref={post.id === lastPostId ? observerTargetRef : undefined}
-              >
-                <PostItem post={post} />
-              </li>
-            )),
-          )}
-        </ul>
-        {isFetchingNextPage && <SpinIcon />}
-      </BodyWrapper>
+      <Layout>
+        <HeaderWrapper>
+          <header>
+            <h1>게시글 목록</h1>
+            <p>최근 게시글 목록을 확인해 보세요.</p>
+          </header>
+        </HeaderWrapper>
+        <BodyWrapper>
+          <ul>
+            {data.pages.map((page) =>
+              page.posts.map((post) => (
+                <li
+                  key={post.id}
+                  ref={post.id === lastPostId ? observerTargetRef : undefined}
+                >
+                  <PostItem post={post} />
+                </li>
+              )),
+            )}
+          </ul>
+          {isFetchingNextPage && <SpinIcon />}
+        </BodyWrapper>
+      </Layout>
     </>
   );
 }
