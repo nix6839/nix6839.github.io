@@ -13,7 +13,10 @@ const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(to right, #2d46b9, #af2896);
+  background-color: #333;
+  background-image: url('./posts-header-2400x1600.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
   padding-top: 100px;
   padding-bottom: 70px;
   color: #fff;
@@ -130,7 +133,7 @@ export default function Posts({ initialPostPage }: Props) {
         urlPath="/posts"
         type="website"
       />
-      <Layout>
+      <Layout toUseHeaderTransparent>
         <HeaderWrapper>
           <header>
             <h1>게시글 목록</h1>

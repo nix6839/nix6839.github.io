@@ -9,13 +9,17 @@ const Main = styled.main`
 `;
 
 type Props = {
+  toUseHeaderTransparent?: boolean;
   children: ReactNode;
 };
 
-export default function Layout({ children }: Props) {
+export default function Layout({
+  toUseHeaderTransparent = false,
+  children,
+}: Props) {
   return (
     <>
-      <SiteHeader />
+      <SiteHeader toUseTransparent={toUseHeaderTransparent} />
       <Main>{children}</Main>
     </>
   );
