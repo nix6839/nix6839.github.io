@@ -13,12 +13,6 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   display: inline-flex;
-  padding: 8px;
-  border-radius: 50%;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
 `;
 
 export default function IconButton({ children, ...buttonProps }: Props) {
