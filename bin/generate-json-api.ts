@@ -80,7 +80,7 @@ function main() {
       (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime(),
     ),
     pathJoin(JSON_API_PATH.postPage),
-    3,
+    12,
   );
 }
 
