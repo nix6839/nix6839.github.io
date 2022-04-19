@@ -1,9 +1,7 @@
-import * as Icon from 'phosphor-react';
 import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useAppSelector } from '../app/hooks';
 import { selectCurrentScrollY } from '../app/scrollYHistorySlice';
-import IconButton from './IconButton';
 import SiteIcon from './icons/SiteIcon';
 import LinkTo from './LinkTo';
 
@@ -121,14 +119,14 @@ export default function SiteHeader({ toUseTransparent }: Props) {
             <LinkTo href="/posts">게시글</LinkTo>
           </Nav>
         </LeftSection>
-        <RightSection>
+        {/* <RightSection>
           <IconButton onClick={undefined} aria-label="검색">
             <Icon.MagnifyingGlass size={24} />
           </IconButton>
           <IconButton onClick={undefined} aria-label="테마 전환">
             <Icon.Sun size={24} weight="fill" />
           </IconButton>
-        </RightSection>
+        </RightSection> */}
       </HeaderContainer>
     </Header>
   );
