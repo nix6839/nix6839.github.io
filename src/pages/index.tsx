@@ -1,7 +1,14 @@
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import HeadTemplate from '../components/HeadTemplate';
-import Layout from '../components/Layout';
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/posts');
+  }, [router]);
+
   return (
     <>
       <HeadTemplate
@@ -10,9 +17,9 @@ export default function Home() {
         type="website"
         urlPath="/"
       />
-      <Layout>
+      {/* <Layout>
         <h1>안녕하세요!!</h1>
-      </Layout>
+      </Layout> */}
     </>
   );
 }
