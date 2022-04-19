@@ -1,8 +1,23 @@
+import dynamic from 'next/dynamic';
 import { ReactNode, useCallback } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { PostSummary } from '../../bin/generate-json-api';
 import LinkTo from './LinkTo';
-import RelativeTime from './RelativeTime';
+
+const RelativePubDateCss = css`
+  display: block;
+  font-size: 14px;
+  color: #282828;
+`;
+
+const RelativePubDateLoading = styled.time`
+  ${RelativePubDateCss}
+`;
+
+const RelativeTime = dynamic(() => import('./RelativeTime'), {
+  loading: () => <RelativePubDateLoading>로딩 중...</RelativePubDateLoading>,
+  ssr: false,
+});
 
 const Article = styled.article`
   display: flex;
@@ -47,9 +62,7 @@ const PostCardHeader = styled.header`
 `;
 
 const RelativePubDate = styled(RelativeTime)`
-  display: block;
-  font-size: 14px;
-  color: #282828;
+  ${RelativePubDateCss}
 `;
 
 const Title = styled.h2`

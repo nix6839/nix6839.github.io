@@ -1,5 +1,6 @@
 import rehypeShiki from '@leafac/rehype-shiki';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import dynamic from 'next/dynamic';
 import { ParsedUrlQuery } from 'querystring';
 import rehypeStringify from 'rehype-stringify/lib';
 import remarkParse from 'remark-parse';
@@ -9,8 +10,12 @@ import styled from 'styled-components';
 import { unified } from 'unified';
 import HeadTemplate from '../../components/HeadTemplate';
 import Layout from '../../components/Layout';
-import RelativeTime from '../../components/RelativeTime';
 import * as PostConnector from '../../lib/PostConnector';
+
+const RelativeTime = dynamic(() => import('../../components/RelativeTime'), {
+  loading: () => <time>로딩 중...</time>,
+  ssr: false,
+});
 
 const Article = styled.article`
   box-sizing: content-box;
