@@ -14,7 +14,7 @@ const HeaderWrapper = styled.div`
   top: 0;
   width: 100%;
   background-color: #333;
-  background-image: url('./posts-header-2400x1600.jpg');
+  background-image: url('/posts-header-2400x1600.jpg');
   background-repeat: no-repeat;
   background-position: center;
   padding-top: 100px;
