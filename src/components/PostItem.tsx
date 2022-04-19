@@ -94,11 +94,11 @@ export default function PostItem({ post }: Props) {
   );
   return (
     <Article>
-      <LinkToPost>
+      {/* <LinkToPost>
         <ThumbnailHolder>
-          {/* <Image src={post.thumbnail} alt="썸네일" layout="fill" /> */}
+          <Image src={post.thumbnail} alt="썸네일" layout="fill" />
         </ThumbnailHolder>
-      </LinkToPost>
+      </LinkToPost> */}
       <TextContainer>
         <UpperContainer>
           <PostCardHeader>
@@ -111,9 +111,9 @@ export default function PostItem({ post }: Props) {
             <ContentSummary>{post.summary}</ContentSummary>
           </LinkToPost>
         </UpperContainer>
-        <section>
-          <Tags>{/* {post.tags.map()} */}</Tags>
-        </section>
+        {/* <section>
+          <Tags>{post.tags.map()}</Tags>
+        </section> */}
       </TextContainer>
     </Article>
   );
