@@ -10,8 +10,7 @@ import {
   setCurrentScrollY,
 } from '../app/scrollYHistorySlice';
 import store from '../app/store';
-import '../styles/global.css';
-import '../styles/pretendard.css';
+import GlobalStyle from '../GlobalStyle';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -48,7 +47,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </>
       </QueryClientProvider>
     </Provider>
   );
