@@ -7,6 +7,8 @@ const request = axios.create({
   validateStatus: (status) => status < 500,
 });
 
+// Other functions will be added later
+// eslint-disable-next-line import/prefer-default-export
 export async function getPage(page = 0): Promise<PostPage> {
   const response = await request.get(`/posts/pages/${page}.json`);
   return response.data;

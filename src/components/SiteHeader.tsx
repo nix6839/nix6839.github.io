@@ -91,7 +91,7 @@ export default function SiteHeader({ toUseTransparent }: Props) {
 
   useEffect(() => {
     if (!toUseTransparent) {
-      return;
+      return undefined;
     }
 
     function onScroll() {

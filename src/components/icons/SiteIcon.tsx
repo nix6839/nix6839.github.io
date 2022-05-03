@@ -2,7 +2,7 @@ type Props = {
   title?: string;
 };
 
-export default function SiteIcon({ title }: Props) {
+export default function SiteIcon({ title = undefined }: Props) {
   return (
     <svg
       width="32"

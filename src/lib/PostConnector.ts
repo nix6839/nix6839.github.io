@@ -85,6 +85,8 @@ function markdownFileIsValidPostFile(
     markdownFile.frontMatter,
   ).validate();
   if (validationErrors.length > 0) {
+    // TODO: Change to Error object
+    // eslint-disable-next-line @typescript-eslint/no-throw-literal
     throw validationErrors;
   }
 }
@@ -134,6 +136,8 @@ function filesToPostFiles(files: File[]): PostFile[] {
     }
   });
   if (validationErrorsList.length > 0) {
+    // TODO: Change to Error object
+    // eslint-disable-next-line @typescript-eslint/no-throw-literal
     throw validationErrorsList;
   }
   return postFiles.map(mapNormalizedPubDate);
