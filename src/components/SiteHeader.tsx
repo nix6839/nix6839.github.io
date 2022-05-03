@@ -1,9 +1,9 @@
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useAppSelector } from '../app/hooks';
 import { selectCurrentScrollY } from '../app/scrollYHistorySlice';
 import SiteIcon from './icons/SiteIcon';
-import LinkTo from './LinkTo';
 
 const RightSection = styled.div`
   display: flex;
@@ -44,7 +44,7 @@ const LeftSection = styled.div`
   align-items: center;
 `;
 
-const SiteLink = styled(LinkTo)`
+const SiteLink = styled(Link)`
   display: inline-flex;
 `;
 
@@ -116,7 +116,7 @@ export default function SiteHeader({ toUseTransparent }: Props) {
             <SiteIcon title="사이트 메인 이동 아이콘" />
           </SiteLink>
           <Nav>
-            <LinkTo href="/posts">게시글</LinkTo>
+            <Link href="/posts">게시글</Link>
           </Nav>
         </LeftSection>
         {/* <RightSection>
