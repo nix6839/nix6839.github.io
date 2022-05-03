@@ -15,7 +15,7 @@ import GlobalStyle from '../GlobalStyle';
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   const router = useRouter();
-  const dispatch = store.dispatch;
+  const { dispatch } = store;
 
   useEffect(() => {
     let popStated = false;

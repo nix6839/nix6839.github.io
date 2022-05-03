@@ -31,14 +31,14 @@ const Article = styled.article`
   }
 `;
 
-const ThumbnailHolder = styled.section`
-  position: relative;
-  height: 173px;
-  img {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-  }
-`;
+// const ThumbnailHolder = styled.section`
+//   position: relative;
+//   height: 173px;
+//   img {
+//     border-top-left-radius: 6px;
+//     border-top-right-radius: 6px;
+//   }
+// `;
 
 const TextContainer = styled.div`
   display: flex;
@@ -81,18 +81,18 @@ const ContentSummary = styled.p`
   -webkit-line-clamp: 4;
 `;
 
-const Tags = styled.ul`
-  font-size: 14px;
-  color: #777;
-  li {
-    display: inline-block;
-    a {
-      &::before {
-        content: '#';
-      }
-    }
-  }
-`;
+// const Tags = styled.ul`
+//   font-size: 14px;
+//   color: #777;
+//   li {
+//     display: inline-block;
+//     a {
+//       &::before {
+//         content: '#';
+//       }
+//     }
+//   }
+// `;
 
 type Props = {
   post: PostSummary;
