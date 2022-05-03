@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { ReactNode, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import { PostSummary } from '../../bin/generate-json-api';
-import LinkTo from './LinkTo';
 
 const RelativePubDateCss = css`
   display: block;
@@ -101,7 +101,7 @@ type Props = {
 export default function PostItem({ post }: Props) {
   const LinkToPost = useCallback(
     (props: { children: ReactNode }) => (
-      <LinkTo href={`/posts/${post.id}`}>{props.children}</LinkTo>
+      <Link href={`/posts/${post.id}`}>{props.children}</Link>
     ),
     [post.id],
   );
