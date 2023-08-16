@@ -12,12 +12,12 @@
     "format": "prettier --write \"**/*.{astro,ts,js,md,json}\""
   },
   "dependencies": {
-    "astro": "2.10.8"
+    "astro": "2.10.9"
   },
   "devDependencies": {
     "@nix6839/prettier-config": "^2.0.2",
-    "prettier": "^3.0.1",
-    "prettier-plugin-astro": "^0.11.0"
+    "prettier": "^3.0.2",
+    "prettier-plugin-astro": "^0.11.1"
   },
   "packageManager": "pnpm@8.6.12"
 }
