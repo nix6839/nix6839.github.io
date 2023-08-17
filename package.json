@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write \"**/*.{astro,ts,js,md,json}\""
+    "format": "prettier --write \"**/*.{astro,ts,js,css,md,json}\""
   },
   "dependencies": {
     "astro": "2.10.9"
