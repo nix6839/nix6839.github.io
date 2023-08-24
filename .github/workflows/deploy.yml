@@ -42,10 +42,7 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Build with Astro
-        run: |
-          pnpm astro build \
-            --site "${{ steps.pages.outputs.origin }}" \
-            --base "${{ steps.pages.outputs.base_path }}"
+        run: pnpm astro build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
