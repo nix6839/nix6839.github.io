@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write \"**/*.{astro,ts,js,cjs,css,md,json,yml}\"",
+    "format:check": "prettier --check \"**/*.{astro,ts,js,cjs,css,md,json,yml}\"",
     "lint": "eslint \"**/*.{ts,astro}\""
   },
   "dependencies": {
