@@ -32,14 +32,14 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Build
-        run: pnpm run build
+        run: pnpm build
 
       - name: Build fetch-pretendard
         run: |
           cd fetch-pretendard && pnpm build
 
       - name: Check code format
-        run: pnpm run format:check
+        run: pnpm format:check
 
       - name: Linting
-        run: pnpm run lint
+        run: pnpm lint
