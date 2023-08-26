@@ -2,7 +2,7 @@ import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-export default defineConfig({
+const config = defineConfig({
   site: 'https://yeongwoo.dev',
   compressHTML: true,
   integrations: [
@@ -11,3 +11,5 @@ export default defineConfig({
     }),
   ],
 });
+
+export default config
