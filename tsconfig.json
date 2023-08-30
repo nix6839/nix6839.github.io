@@ -1,7 +1,3 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "verbatimModuleSyntax": true,
-    "moduleResolution": "NodeNext"
-  }
+  "extends": "astro/tsconfigs/strict"
 }
