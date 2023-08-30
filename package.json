@@ -10,7 +10,7 @@
     "astro": "astro",
     "format": "prettier --write \"**/*.{astro,ts,js,cjs,css,md,json,yml,yaml}\"",
     "format:check": "prettier --check \"**/*.{astro,ts,js,cjs,css,md,json,yml,yaml}\"",
-    "lint": "eslint \"**/*.{ts,astro}\"",
+    "lint": "eslint \"**/*.{ts,astro}\" && pnpm astro check && pnpm tsc",
     "fetch-fonts": "fetch-pretendard --font-output-dir ./public/fonts --css-output-path ./src/styles/pretendardvariable-dynamic-subset.css --css-url 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css'"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "tailwindcss": "3.3.3"
   },
   "devDependencies": {
+    "@astrojs/check": "0.2.0",
     "@nix6839/prettier-config": "2.0.2",
     "@types/eslint": "8.44.2",
     "@typescript-eslint/eslint-plugin": "6.5.0",
@@ -29,7 +30,8 @@
     "fetch-pretendard": "workspace:^",
     "prettier": "3.0.3",
     "prettier-plugin-astro": "0.12.0",
-    "prettier-plugin-tailwindcss": "0.5.3"
+    "prettier-plugin-tailwindcss": "0.5.3",
+    "typescript": "5.2.2"
   },
   "packageManager": "pnpm@8.6.12"
 }
