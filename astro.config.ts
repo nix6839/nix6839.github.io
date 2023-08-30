@@ -4,7 +4,6 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 const config = defineConfig({
   site: 'https://yeongwoo.dev',
-  compressHTML: true,
   integrations: [
     tailwind({
       applyBaseStyles: false,
