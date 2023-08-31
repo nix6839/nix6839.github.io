@@ -1,5 +1,9 @@
-# Yeong-Woo Han's Blog
+# Han Yeong-woo's old blog
 
-[![CI/CD](https://github.com/nix6839/nix6839.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/nix6839/nix6839.github.io/actions/workflows/deploy.yml)
+This repository and blog is no longer maintained.
 
-Website link: <https://washnix.com>
+Please visit a new repository and blog.
+
+- [New repository link](https://github.com/nix6839/personal-websites)
+- [New blog link](https://blog.yeongwoo.dev)
+- [Old blog link](https://old.yeongwoo.dev) (Just in case you're wondering)
